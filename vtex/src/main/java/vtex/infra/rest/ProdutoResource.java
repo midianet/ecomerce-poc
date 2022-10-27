@@ -19,11 +19,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = "/produtos")
 public class ProdutoResource {
-    private final ListarProdutoUsecase listar;
-    private final ObterProdutoPorIdUsecase obterPorId;
-    private final AlterarProdutoUsecase alterar;
-    private final NovoProdutoUsecase novo;
-    private final RemoverProdutoUsecase remover;
+    private final ListarProduto listar;
+    private final ObterProdutoPorId obterPorId;
+    private final AlterarProduto alterar;
+    private final NovoProduto novo;
+    private final RemoverProduto remover;
 
     @GetMapping("/{id}")
     public Produto get(@PathVariable final String id){
@@ -40,20 +40,31 @@ public class ProdutoResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void post(@Valid @RequestBody final Produto produto,
+    public void post(@Valid @RequestBody final NovoProduto.In produto,
                      final HttpServletResponse response) {
-        novo.execute(produto);
+        final var persistent = novo.execute(produto);
         response.setHeader(HttpHeaders.LOCATION,
                 ServletUriComponentsBuilder.fromCurrentRequest()
                         .path("/{id}")
-                        .buildAndExpand(produto.getId())
+                        .buildAndExpand(persistent.getId())
                         .toUri().toString()
         );
     }
 
+    @PutMapping("/{id}/preco")
+    public void putPreco(@PathVariable final String id, @RequestParam Double valor){
+
+    }
+
+    @PutMapping("/{id}/estoque")
+    public void putEstoque(@PathVariable final String id, @RequestParam Double quantidade){
+
+    }
+
+
     @PutMapping("/{id}")
     public void put(@PathVariable final String id,
-                    @Valid @RequestBody final Produto produto) {
+                    @Valid @RequestBody final AlterarProduto.In produto) {
         alterar.execute(id, produto);
     }
 

@@ -12,9 +12,9 @@ import javax.transaction.Transactional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class RemoverProdutoUsecase {
+public class RemoverProduto {
     private final ProdutoRepository repository;
-    private final ObterProdutoPorIdUsecase obterPorId;
+    private final ObterProdutoPorId obterPorId;
 
     private final ProdutoRemovidoProducer producer;
 

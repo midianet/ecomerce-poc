@@ -2,7 +2,6 @@ package vtex.core.usecase;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import vtex.core.entity.Produto;
 import vtex.infra.broker.producer.ProdutoAlteradoProducer;
 import vtex.infra.database.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
@@ -14,17 +13,19 @@ import javax.transaction.Transactional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AlterarProdutoUsecase {
+public class AlterarProduto {
     private final ProdutoRepository repository;
-    private final ObterProdutoPorIdUsecase obterPorId;
+    private final ObterProdutoPorId obterPorId;
     private final ProdutoAlteradoProducer producer;
 
     @Transactional
-    public void execute(@NonNull final String id, @NonNull final Produto produto){
+    public void execute(@NonNull final String id, @NonNull final AlterarProduto.In produto){
         final var persistent = obterPorId.execute(id);
         BeanUtils.copyProperties(produto , persistent,"id");
         repository.save(persistent);
         producer.send(persistent);
     }
+
+    public record In(String descricao){}
 
 }

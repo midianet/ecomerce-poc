@@ -17,7 +17,7 @@ import java.util.Objects;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ListarProdutoUsecase {
+public class ListarProduto {
 
     private final ProdutoRepository repository;
 

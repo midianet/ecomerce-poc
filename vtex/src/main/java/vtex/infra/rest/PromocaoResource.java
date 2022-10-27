@@ -19,11 +19,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = "/promocoes")
 public class PromocaoResource {
-    private final ListarProdutoUsecase listar;
-    private final ObterProdutoPorIdUsecase obterPorId;
-    private final AlterarProdutoUsecase alterar;
-    private final NovoProdutoUsecase novo;
-    private final RemoverProdutoUsecase remover;
+    private final ListarProduto listar;
+    private final ObterProdutoPorId obterPorId;
+    private final AlterarProduto alterar;
+    private final NovoProduto novo;
+    private final RemoverProduto remover;
 
     @GetMapping("/{id}")
     public Produto get(@PathVariable final String id){

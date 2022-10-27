@@ -12,7 +12,7 @@ import javax.persistence.EntityNotFoundException;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ObterProdutoPorIdUsecase {
+public class ObterProdutoPorId {
 
     private final ProdutoRepository repository;
 
