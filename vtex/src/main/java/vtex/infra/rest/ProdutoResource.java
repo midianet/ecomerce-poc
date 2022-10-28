@@ -24,6 +24,8 @@ public class ProdutoResource {
     private final AlterarProduto alterar;
     private final NovoProduto novo;
     private final RemoverProduto remover;
+    private final AlterarEstoqueProduto alterarEstoque;
+    private final AlterarPrecoProduto alterarPreco;
 
     @GetMapping("/{id}")
     public Produto get(@PathVariable final String id){
@@ -51,16 +53,15 @@ public class ProdutoResource {
         );
     }
 
-    @PutMapping("/{id}/preco")
-    public void putPreco(@PathVariable final String id, @RequestParam Double valor){
-
+    @PatchMapping("/{id}/preco")
+    public void patchPreco(@PathVariable final String id, @RequestParam Double valor){
+        alterarPreco.execute(id,valor);
     }
 
-    @PutMapping("/{id}/estoque")
-    public void putEstoque(@PathVariable final String id, @RequestParam Double quantidade){
-
+    @PatchMapping("/{id}/estoque")
+    public void patchEstoque(@PathVariable final String id, @RequestParam Double quantidade){
+        alterarEstoque.execute(id,quantidade);
     }
-
 
     @PutMapping("/{id}")
     public void put(@PathVariable final String id,

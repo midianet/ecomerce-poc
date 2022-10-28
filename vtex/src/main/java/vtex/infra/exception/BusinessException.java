@@ -11,14 +11,14 @@ public class BusinessException extends RuntimeException {
         super(message);
     }
 
-//    public void sacar(Integer numConta, Double valor){
+//    public void sacar(Integer numConta, Double preco){
 //        ///repositor.createTransaction()
 //                //try{
 //                    repository.initTransaction()
 //                    Conta conta  = repository.find(numConta);
 //                    if(conta == null) thow "conta invalida""
-//                    if(conta.saldo < valor) thow "saldo insuficiente"
-//                    conta.saldo = conta.sald - valor;
+//                    if(conta.saldo < preco) thow "saldo insuficiente"
+//                    conta.saldo = conta.sald - preco;
 //                    repository.save(conta)
 //                    //repositoyr.commiit()
 //                //}catch(Exception e){
@@ -30,11 +30,11 @@ public class BusinessException extends RuntimeException {
 
 //    @Transactional
 //    @RollesAllowed({"ANDMIN","MANAGER"})
-//    public void sacar(Integer numConta, Double valor){
+//    public void sacar(Integer numConta, Double preco){
 //        Conta conta  = repository.find(numConta);
 //        if(conta == null) thow "conta invalida""
-//        if(conta.saldo < valor) thow "saldo insuficiente"
-//        conta.saldo = conta.sald - valor;
+//        if(conta.saldo < preco) thow "saldo insuficiente"
+//        conta.saldo = conta.sald - preco;
 //        repository.save(conta)
 //    }
 

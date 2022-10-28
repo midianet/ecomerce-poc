@@ -22,7 +22,7 @@ public class Produto implements Serializable {
 
     @NotNull
     @PositiveOrZero
-    private Double valor;
+    private Double preco;
 
     @NotNull
     @PositiveOrZero

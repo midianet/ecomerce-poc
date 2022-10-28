@@ -21,7 +21,7 @@ public class Produto{
     @Column(nullable = false, length = 80)
     private String descricao;
 
-    private Double valor;
+    private Double preco;
 
     private Double estoque;
 

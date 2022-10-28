@@ -26,7 +26,7 @@ public class NovoProduto {
                 .id(String.valueOf(Math.abs(UUID.randomUUID().getMostSignificantBits())))
                 .descricao(produto.descricao)
                 .estoque(Optional.ofNullable(produto.estoque).orElse(0.0))
-                .valor(Optional.ofNullable(produto.valor).orElse(0.0))
+                .preco(Optional.ofNullable(produto.preco).orElse(0.0))
                 .build();
         repository.save(novo);
         producer.send(novo);
@@ -40,7 +40,7 @@ public class NovoProduto {
 
         @NotNull
         @PositiveOrZero
-        Double valor,
+        Double preco,
 
         @NotNull
         @PositiveOrZero
