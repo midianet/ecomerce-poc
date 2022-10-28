@@ -9,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.constraints.*;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,6 +33,17 @@ public class NovoProduto {
         return novo;
     }
 
-    public record In(String descricao, Double valor, Double estoque ){}
+    public record In(
+        @NotBlank
+        @Size(min = 3, max = 80)
+        String descricao,
+
+        @NotNull
+        @PositiveOrZero
+        Double valor,
+
+        @NotNull
+        @PositiveOrZero
+        Double estoque ){}
 
 }

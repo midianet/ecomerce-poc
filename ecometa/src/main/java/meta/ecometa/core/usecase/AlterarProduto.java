@@ -13,15 +13,19 @@ import javax.transaction.Transactional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AlterarProdutoUsecase {
+public class AlterarProduto {
     private final ProdutoRepository repository;
 
     @Transactional
-    public void execute(@NonNull final Produto produto){
-        repository.findById(produto.getId()).ifPresentOrElse(persistent -> {
+    public void execute(@NonNull final In produto){
+        repository.findById(produto.id).ifPresentOrElse(persistent -> {
             BeanUtils.copyProperties(produto , persistent,"id");
             repository.save(persistent);
-        },() -> log.warn("Produto não econtrado: {0}",produto.getId()));
+        },() -> log.warn("Produto não econtrado: {}",produto.id));
     }
+
+    public record In(
+            String id,
+            String descricao){}
 
 }

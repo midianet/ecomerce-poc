@@ -19,7 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = "/promocoes")
 public class PromocaoResource {
-    private final ListarProduto listar;
+ /*   private final ListarProduto listar;
     private final ObterProdutoPorId obterPorId;
     private final AlterarProduto alterar;
     private final NovoProduto novo;
@@ -61,6 +61,6 @@ public class PromocaoResource {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable final String id) {
         remover.execute(id);
-    }
+    }*/
 
 }

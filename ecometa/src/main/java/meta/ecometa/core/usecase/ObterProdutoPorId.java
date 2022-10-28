@@ -10,7 +10,7 @@ import javax.persistence.EntityNotFoundException;
 
 @Service
 @RequiredArgsConstructor
-public class ObterProdutoPorIdUsecase {
+public class ObterProdutoPorId {
 
     private final ProdutoRepository repository;
 

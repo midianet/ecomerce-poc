@@ -2,7 +2,7 @@ package meta.ecometa.infra.rest;
 
 import lombok.RequiredArgsConstructor;
 import meta.ecometa.core.entity.Produto;
-import meta.ecometa.core.usecase.ListarProdutoUsecase;
+import meta.ecometa.core.usecase.ListarProduto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = "/produtos")
 public class ProdutoResource {
-    private final ListarProdutoUsecase listar;
+    private final ListarProduto listar;
 
     @GetMapping
     public Page<Produto> find(@RequestParam(required = false) final String descricao,

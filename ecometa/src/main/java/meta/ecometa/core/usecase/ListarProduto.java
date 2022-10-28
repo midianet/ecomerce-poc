@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ListarProdutoUsecase {
+public class ListarProduto {
 
     private final ProdutoRepository repository;
 

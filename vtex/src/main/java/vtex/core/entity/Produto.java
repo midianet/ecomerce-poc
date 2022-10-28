@@ -15,9 +15,9 @@ public class Produto implements Serializable {
     @Id
     private String id;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 3, max = 80)
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 80)
     private String descricao;
 
     @NotNull

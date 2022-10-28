@@ -9,6 +9,8 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Slf4j
 @Service
@@ -26,6 +28,9 @@ public class AlterarProduto {
         producer.send(persistent);
     }
 
-    public record In(String descricao){}
+    public record In(
+        @NotBlank
+        @Size(min = 3, max = 80)
+        String descricao){}
 
 }

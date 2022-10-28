@@ -1,4 +1,4 @@
-package meta.ecometa.core.entity;
+package vtex.core.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,21 +8,20 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
+import java.io.Serializable;
 
 @Data
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Produto{
-    @Id
-    private String id;
+public class Estoque implements Serializable {
 
-    @Column(nullable = false, length = 80)
-    private String descricao;
+    @NotBlank
+    private String produtoId;
 
-    private Double valor;
-
+    @NotNull
+    @PositiveOrZero
     private Double estoque;
 
 }
