@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Produto{
+public class Mercadoria {
     @Id
     private String id;
 
