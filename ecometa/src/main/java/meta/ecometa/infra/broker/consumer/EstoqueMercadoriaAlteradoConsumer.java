@@ -1,4 +1,4 @@
-package meta.ecometa.infra.broker.consumer.vtex;
+package meta.ecometa.infra.broker.consumer;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class EstoqueMercadoriaAlteradoConsumer {
 
     private final AlterarEstoqueMercadoria alterarEstoque;
 
-    @KafkaListener(topics = "${topico.vtex.estoque.mercadoria.alterado}",
+    @KafkaListener(topics = "${topico.estoque.mercadoria.alterado}",
                    groupId = "${spring.kafka.consumer.group-id}",
                    properties = {"spring.json.value.default.type=meta.ecometa.core.usecase.AlterarEstoqueMercadoria.In"})
     public void consume(@NonNull final AlterarEstoqueMercadoria.In estoque) {

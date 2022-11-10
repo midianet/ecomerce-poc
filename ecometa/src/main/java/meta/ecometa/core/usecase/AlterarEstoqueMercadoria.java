@@ -17,13 +17,13 @@ public class AlterarEstoqueMercadoria {
 
     @Transactional
     public void execute(@NonNull final In estoque){
-        final var persistent = obterPorId.execute(estoque.produtoId);
+        final var persistent = obterPorId.execute(estoque.id);
         persistent.setEstoque(estoque.quantidade);
         repository.save(persistent);
     }
 
     public record In(
-            String produtoId,
+            String id,
             Double quantidade){}
 
 }

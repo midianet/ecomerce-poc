@@ -46,6 +46,7 @@
 	<modules>
 		<module>ecometa</module>
 		<module>vtex</module>
+		<module>totvs</module>
     </modules>
 
 </project>

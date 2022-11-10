@@ -17,13 +17,13 @@ public class AlterarPrecoMercadoria {
 
     @Transactional
     public void execute(@NonNull final In preco){
-        final var persistent = obterPorId.execute(preco.produtoId);
+        final var persistent = obterPorId.execute(preco.id);
         persistent.setPreco(preco.valor);
         repository.save(persistent);
     }
 
     public record In(
-            String produtoId,
+            String id,
             Double valor){}
 
 }

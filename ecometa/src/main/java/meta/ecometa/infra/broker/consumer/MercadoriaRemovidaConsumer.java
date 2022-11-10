@@ -1,4 +1,4 @@
-package meta.ecometa.infra.broker.consumer.vtex;
+package meta.ecometa.infra.broker.consumer;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class MercadoriaRemovidaConsumer {
 
     private final RemoverMercadoria remover;
 
-    @KafkaListener(topics = "${topico.vtex.mercadoria.removida}",
+    @KafkaListener(topics = "${topico.mercadoria.removida}",
                    groupId = "${spring.kafka.consumer.group-id}",
                    properties = {"spring.json.value.default.type=java.lang.String"})
     public void consume(@NonNull final String id) {

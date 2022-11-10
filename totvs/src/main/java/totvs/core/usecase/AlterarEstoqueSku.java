@@ -1,22 +1,21 @@
-package vtex.core.usecase;
+package totvs.core.usecase;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-import vtex.infra.broker.producer.EstoqueProdutoAlteradoProducer;
-import vtex.infra.broker.producer.ProdutoAlteradoProducer;
-import vtex.infra.database.ProdutoRepository;
+import totvs.infra.broker.producer.EstoqueSkuAlteradoProducer;
+import totvs.infra.database.SkuRepository;
 
 import javax.transaction.Transactional;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AlterarEstoqueProduto {
-    private final ProdutoRepository repository;
-    private final ObterProdutoPorId obterPorId;
-    private final EstoqueProdutoAlteradoProducer producer;
+public class AlterarEstoqueSku {
+    private final SkuRepository repository;
+    private final ObterSkuPorId obterPorId;
+    private final EstoqueSkuAlteradoProducer producer;
 
     @Transactional
     public void execute(@NonNull final String id, @NonNull final Double quantidade){
